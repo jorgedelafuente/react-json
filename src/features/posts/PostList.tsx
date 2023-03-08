@@ -2,10 +2,11 @@ import { useEffect } from 'react';
 
 import type { RootState } from '../../app/store';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { fetchPosts } from './postActions';
-import Card from '../../components/Card';
 
-// import { decrement, increment } from './postSlice';
+import { fetchPosts } from './postActions';
+import { deletePost } from './postSlice';
+
+import Card from '../../components/Card';
 
 export function PostList() {
   const dispatch = useAppDispatch();
@@ -18,8 +19,7 @@ export function PostList() {
   }, [dispatch, allPosts]);
 
   const handleDelete = (postId: number) => {
-    console.log('TCL: handleDelete -> postId', postId);
-    // dispatch(deletePost(postId));
+    dispatch(deletePost(postId));
   };
 
   return (

@@ -7,5 +7,4 @@ export interface PostModel {
 
 export interface PostArrayModel {
   all_posts: PostModel[];
-  particular_post: PostModel;
 }
