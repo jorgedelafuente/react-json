@@ -1,9 +1,19 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import type { PostArrayModel, PostModel } from '../../models/postModels';
+import apiService from '../../service/Api';
+interface PostState extends PostArrayModel {
+  loading: 'idle' | 'pending' | 'succeeded' | 'failed';
+}
 
-const initialPostState: PostArrayModel = {
+const initialPostState: PostState = {
   all_posts: [],
+  loading: 'idle',
 };
+
+export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
+  const response = await apiService().get('posts');
+  return response.data;
+});
 
 export const postSlice = createSlice({
   name: 'post',
@@ -17,6 +27,19 @@ export const postSlice = createSlice({
     setPosts(state, action: PayloadAction<PostModel[]>) {
       state.all_posts = action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchPosts.pending, (state, action) => {
+      state.loading = 'pending';
+    });
+    builder.addCase(fetchPosts.fulfilled, (state, action) => {
+      state.loading = 'succeeded';
+      state.all_posts = action.payload;
+    });
+
+    builder.addCase(fetchPosts.rejected, (state, action) => {
+      state.loading = 'failed';
+    });
   },
 });
 

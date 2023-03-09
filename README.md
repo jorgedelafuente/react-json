@@ -8,6 +8,7 @@ TODO :
 4.) trim text
 4b.) mobile
 4c.) hover
+4d. ) toasts
 
 optional
 

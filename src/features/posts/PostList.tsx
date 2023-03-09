@@ -2,15 +2,16 @@ import { useEffect } from 'react';
 
 import type { RootState } from '../../app/store';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-
-import { fetchPosts } from './postActions';
-import { deletePost } from './postSlice';
+import { deletePost, fetchPosts } from './postSlice';
 
 import Card from '../../components/Card';
 
 export function PostList() {
   const dispatch = useAppDispatch();
   const allPosts = useAppSelector((state: RootState) => state.posts.all_posts);
+  const loadingState = useAppSelector(
+    (state: RootState) => state.posts.loading
+  );
 
   useEffect(() => {
     if (allPosts.length === 0) {
@@ -21,6 +22,10 @@ export function PostList() {
   const handleDelete = (postId: number) => {
     dispatch(deletePost(postId));
   };
+
+  if (loadingState === 'pending') return <p>...Loading</p>;
+  if (loadingState === 'failed')
+    return <p>There was an error retrieving the data. Try again later.</p>;
 
   return (
     <div>
