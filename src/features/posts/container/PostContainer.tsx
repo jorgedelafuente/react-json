@@ -1,11 +1,10 @@
-import { useEffect } from 'react';
-
 import type { RootState } from '../../../app/store';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { fetchPosts } from '../../state/postSlice';
 
 import { Header, Footer } from '../../../components/layout';
 import PostList from '../components/PostList';
+import { useEffect } from 'react';
 
 function PostContainer() {
   const dispatch = useAppDispatch();
