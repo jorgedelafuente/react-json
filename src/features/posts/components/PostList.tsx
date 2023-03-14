@@ -13,16 +13,18 @@ interface IPostList {
 const PostList = ({ allPosts, loadingState }: IPostList) => {
   const dispatch = useAppDispatch();
 
-  if (loadingState === 'pending') return <p>...Loading</p>;
-  if (loadingState === 'failed')
-    return <p>There was an error retrieving the data. Try again later.</p>;
-
   const handleDelete = (postId: number) => {
     dispatch(deletePost(postId));
   };
 
   return (
     <div className="postlist-wrapper">
+      {loadingState === 'pending' && <p>...Loading</p>}
+
+      {loadingState === 'failed' && (
+        <p>There was an error retrieving the data. Try again later.</p>
+      )}
+
       {allPosts.map((post) => (
         <div key={post.id}>
           <Card

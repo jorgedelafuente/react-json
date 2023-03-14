@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { ToastContainer } from 'react-toastify';
 
 import type { RootState } from '../../../app/store';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
@@ -23,7 +22,6 @@ function PostContainer() {
 
   return (
     <>
-      <ToastContainer />
       <Header />
       <PostList allPosts={allPosts} loadingState={loadingState} />
       <Footer allPostsAmount={allPosts.length} />
