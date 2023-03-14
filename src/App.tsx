@@ -1,11 +1,12 @@
+import Header from './components/header/Header';
 import { PostList } from './features/posts/PostList';
 
 function App() {
   return (
-    <div>
-      <header>JSON App</header>
+    <>
+      <Header />
       <PostList />
-    </div>
+    </>
   );
 }
 
