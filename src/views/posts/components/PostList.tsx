@@ -44,7 +44,10 @@ const PostList = ({
               userName={allUsers[post.userId - 1]?.name}
               body={post.body}
               cardAction={
-                <button onClick={() => handleDelete(post.id)}>
+                <button
+                  aria-label="Delete Post"
+                  onClick={() => handleDelete(post.id)}
+                >
                   Delete Post
                 </button>
               }
