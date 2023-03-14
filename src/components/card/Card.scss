@@ -1,0 +1,43 @@
+.card {
+    border: 1px solid var(--primary-blue-200);
+    border-radius: 10px;
+    padding: 1rem;
+    width: 250px;
+    margin: 0 auto;
+    text-align: center;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p,
+    h3 {
+        text-align: start;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        white-space: pre-line;
+    }
+
+    h3 {
+        -webkit-line-clamp: 1;
+        font-size: 1.3rem;
+        text-decoration: underline;
+    }
+
+    button {
+        margin: 10px 0px;
+        padding: 0.5rem;
+        border-radius: 10px;
+        color: var(--secondary-cyan);
+        background-color: var(--primary-blue-100);
+        border: 1px solid var(--primary-blue-200);
+    }
+    button:hover {
+        cursor: pointer;
+        -webkit-box-shadow: 1px 1px 4px 2px rgba(181, 227, 216, 1);
+        -moz-box-shadow: 1px 1px 4px 2px rgba(181, 227, 216, 1);
+        box-shadow: 1px 1px 4px 2px rgba(181, 227, 216, 1);
+    }
+}

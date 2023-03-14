@@ -1,4 +1,4 @@
-import type { PostModel } from '../models/postModels';
+import type { PostModel } from '../../models/postModels';
 import './Card.scss';
 
 interface CardProps extends PostModel {
@@ -14,12 +14,14 @@ const Card = ({
 }: CardProps): JSX.Element => {
   return (
     <div key={id} className="card">
-      <h3>{title}</h3>
-      <p>
-        {id} - {userId}
-      </p>
-      <p>{body}</p>
-      {cardAction}
+      <div>
+        <h3>{title}</h3>
+        <p>
+          post id {id} - user id {userId}
+        </p>
+        <p>{body}</p>
+      </div>
+      <div>{cardAction}</div>
     </div>
   );
 };

@@ -69,7 +69,12 @@ h6 {
 }
 
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+:root {
+  --primary-blue-100: #4478bd;
+  --primary-blue-200: #456ba5;
+  --secondary-cyan: #b5e3d8;
+}
 
 body {
-  font-family: "Josefin Sans", cursive;
+  font-family: "Josefin Sans", sans-serif;
 }
