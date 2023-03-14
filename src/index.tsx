@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { store } from './app/store';
+import { store } from './redux/store';
 import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 
-import { PostContainer } from './features/posts';
+import { PostContainer } from './views/posts';
 import 'react-toastify/dist/ReactToastify.css';
 import './globals.scss';
 
@@ -13,10 +13,12 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <React.StrictMode>
+  <>
+    {/* <React.StrictMode> */}
     <Provider store={store}>
       <ToastContainer />
       <PostContainer />
     </Provider>
-  </React.StrictMode>
+    {/* </React.StrictMode> */}
+  </>
 );

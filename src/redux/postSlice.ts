@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
-import type { PostArrayModel, PostModel } from '../../models/postModels';
-import apiService from '../../service/Api';
+import type { PostArrayModel, PostModel } from '../models/postModels';
+import apiService from '../services';
+
 interface PostState extends PostArrayModel {
   loading: 'idle' | 'pending' | 'succeeded' | 'failed';
 }
@@ -39,7 +40,6 @@ export const postSlice = createSlice({
       state.loading = 'succeeded';
       state.all_posts = action.payload;
     });
-
     builder.addCase(fetchPosts.rejected, (state, action) => {
       state.loading = 'failed';
     });

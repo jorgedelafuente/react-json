@@ -3,6 +3,7 @@ import './Card.scss';
 
 interface CardProps extends PostModel {
   cardAction?: JSX.Element;
+  userName: string;
 }
 
 const Card = ({
@@ -11,14 +12,14 @@ const Card = ({
   userId,
   body,
   cardAction,
+  userName,
 }: CardProps): JSX.Element => {
   return (
-    <div key={id} className="card">
+    <div className="card">
       <div>
         <h3>{title}</h3>
-        <p>
-          post id {id} - user id {userId}
-        </p>
+        <p>By : {userName}</p>
+        <p>Post ID : {id}</p>
         <p>{body}</p>
       </div>
       <div>{cardAction}</div>

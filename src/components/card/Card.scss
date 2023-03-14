@@ -26,6 +26,14 @@
         text-decoration: underline;
     }
 
+    div > p {
+        font-size: 0.9rem;
+    }
+
+    div > p:nth-child(4) {
+        font-size: 0.8rem;
+    }
+
     button {
         margin: 10px 0px;
         padding: 0.5rem;
