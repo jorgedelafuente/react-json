@@ -1,32 +1,13 @@
 # react-json
 
-TODO :
+### Instructions
 
-1.) declare vars and revise globals.scss sample idrica blue color ##446bb0
-2.) add an aggregation off all the posts ( footer )
-3.) delete post layout
-4.) trim text
-4b.) mobile
-4c.) hover
-4d. ) toasts
+1.) run npm install
+2.) run npm start
 
-optional
+Tech Stack
 
-unit testing
-e2e testing
-sass styles and css variables
-BEM
-flexbox
-grid
-
-enhancements
-
-editing posts
-basic layout - navbar, sidebar, content, breadcrumbs
-color palette and style guide
-css animations
-
-delivery
-
-zip file
-README file with instructions
+    React
+    React Toolkit
+    SASS
+    Axios
