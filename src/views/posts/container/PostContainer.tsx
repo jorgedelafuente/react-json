@@ -22,11 +22,16 @@ function PostContainer() {
   );
 
   useEffect(() => {
-    if (allPosts.length === 0 || allUsers.length === 0) {
+    if (allPosts.length === 0) {
       dispatch(fetchPosts());
+    }
+  }, [dispatch, allPosts]);
+
+  useEffect(() => {
+    if (allUsers.length === 0) {
       dispatch(fetchUsers());
     }
-  }, [dispatch, allPosts, allUsers]);
+  }, [dispatch, allUsers]);
 
   return (
     <>
