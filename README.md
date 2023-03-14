@@ -11,3 +11,4 @@ Tech Stack
     React Toolkit
     SASS
     Axios
+    React Toastify
