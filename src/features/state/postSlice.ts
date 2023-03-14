@@ -1,4 +1,6 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
+
 import type { PostArrayModel, PostModel } from '../../models/postModels';
 import apiService from '../../service/Api';
 interface PostState extends PostArrayModel {
@@ -23,6 +25,7 @@ export const postSlice = createSlice({
       state.all_posts = state.all_posts.filter(
         (post) => post.id !== action.payload
       );
+      toast.success(`Post with Id ${action.payload} was deleted successfully.`);
     },
     setPosts(state, action: PayloadAction<PostModel[]>) {
       state.all_posts = action.payload;
