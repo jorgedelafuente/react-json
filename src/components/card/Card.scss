@@ -10,6 +10,10 @@
     flex-direction: column;
     justify-content: space-between;
 
+    h3 {
+        text-transform: capitalize;
+    }
+
     p,
     h3 {
         text-align: start;
@@ -20,19 +24,43 @@
         white-space: pre-line;
     }
 
+    div > p:nth-child(2) {
+        margin-bottom: 0.5rem;
+    }
+    div > p:nth-child(3) {
+        font-size: 0.75rem;
+
+        span {
+            color: var(--primary-blue-200);
+        }
+    }
+}
+
+.card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+
     h3 {
         -webkit-line-clamp: 1;
-        font-size: 1.3rem;
-        text-decoration: underline;
+        font-size: 1.25rem;
+        color: var(--primary-blue-200);
     }
 
+    img {
+        cursor: pointer;
+    }
+}
+
+.card-actions {
     button {
-        margin: 10px 0px;
+        margin: 5px 0px;
         padding: 0.5rem;
-        border-radius: 10px;
+        border-radius: 5px;
         color: var(--secondary-cyan);
         background-color: var(--primary-blue-100);
-        border: 1px solid var(--primary-blue-200);
+        border: 2px solid var(--primary-blue-200);
     }
     button:hover {
         cursor: pointer;

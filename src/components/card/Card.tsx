@@ -1,27 +1,52 @@
+import { useState } from 'react';
 import type { PostModel } from '../../models/postModels';
 import './Card.scss';
 
 interface CardProps extends PostModel {
   cardAction?: JSX.Element;
+  userName: string;
 }
 
 const Card = ({
-  id,
   title,
-  userId,
   body,
   cardAction,
+  userName,
 }: CardProps): JSX.Element => {
+  const [customTitle, setCustomTitle] = useState(title);
+  const [isEditable, setIsEditable] = useState(false);
+
   return (
-    <div key={id} className="card">
+    <div className="card">
       <div>
-        <h3>{title}</h3>
-        <p>
-          post id {id} - user id {userId}
-        </p>
+        <div className="card-title">
+          {!isEditable ? (
+            <h3>{customTitle}</h3>
+          ) : (
+            <>
+              <input
+                type="text"
+                value={customTitle}
+                onChange={(e) => setCustomTitle(e.target.value)}
+              />
+            </>
+          )}
+
+          <img
+            onClick={() => setIsEditable(!isEditable)}
+            src="/pencil.svg"
+            alt=""
+            height="15px"
+            width="15px"
+          />
+        </div>
+
         <p>{body}</p>
+        <p>
+          By : <span>{userName}</span>
+        </p>
       </div>
-      <div>{cardAction}</div>
+      <div className="card-actions">{cardAction}</div>
     </div>
   );
 };

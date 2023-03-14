@@ -3,7 +3,9 @@ import './Footer.scss';
 const Footer = ({ allPostsAmount }: { allPostsAmount: number }) => {
   return (
     <footer>
-      Total Posts Available : {allPostsAmount} © {new Date().getFullYear()}
+      Total Posts Available :{' '}
+      <span data-testid="footer-count">{allPostsAmount}</span> ©{' '}
+      {new Date().getFullYear()}
     </footer>
   );
 };
