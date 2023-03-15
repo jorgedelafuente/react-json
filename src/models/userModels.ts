@@ -1,5 +1,3 @@
-// interface Address {}
-
 export interface UserModel {
   id: number;
   name: string;
