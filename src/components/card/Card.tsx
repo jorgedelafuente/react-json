@@ -19,7 +19,7 @@ const Card = ({
   return (
     <div className="card">
       <div>
-        <div className="card-title">
+        <div className="card-title" data-testid="contentinfo2">
           {!isEditable ? (
             <h3>{customTitle}</h3>
           ) : (
