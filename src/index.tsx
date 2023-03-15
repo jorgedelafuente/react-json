@@ -13,12 +13,10 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <>
-    {/* <React.StrictMode> */}
+  <React.StrictMode>
     <Provider store={store}>
       <ToastContainer />
       <PostContainer />
     </Provider>
-    {/* </React.StrictMode> */}
-  </>
+  </React.StrictMode>
 );

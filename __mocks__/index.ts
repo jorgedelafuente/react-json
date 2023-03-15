@@ -33,5 +33,3 @@ export const mockUsers = [
     },
   },
 ];
-
-// export default () =>
