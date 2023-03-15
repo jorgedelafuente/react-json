@@ -50,11 +50,16 @@
         color: var(--secondary-cyan);
         background-color: var(--primary-blue-100);
         border: 2px solid var(--primary-blue-200);
+        transition: all 0.2s ease-in-out;
     }
     button:hover {
         cursor: pointer;
         -webkit-box-shadow: 1px 1px 4px 2px rgba(181, 227, 216, 1);
         -moz-box-shadow: 1px 1px 4px 2px rgba(181, 227, 216, 1);
         box-shadow: 1px 1px 4px 2px rgba(181, 227, 216, 1);
+    }
+
+    button:active {
+        transform: translateY(1px);
     }
 }
