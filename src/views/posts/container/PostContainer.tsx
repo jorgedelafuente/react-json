@@ -1,14 +1,14 @@
-import type { RootState } from '../../../redux/store';
+import { useEffect } from 'react';
 import {
   useAppDispatch,
   useAppSelector,
   fetchPosts,
   fetchUsers,
+  type RootState,
 } from '../../../redux';
 
 import { Header, Footer } from '../../../components/layout';
 import PostList from '../components/PostList';
-import { useEffect } from 'react';
 
 function PostContainer() {
   const dispatch = useAppDispatch();
