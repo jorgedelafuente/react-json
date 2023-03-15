@@ -12,6 +12,7 @@ const Card = ({
   body,
   cardAction,
   userName,
+  userId,
 }: CardProps): JSX.Element => {
   const [customTitle, setCustomTitle] = useState(title);
   const [isEditable, setIsEditable] = useState(false);
@@ -43,7 +44,10 @@ const Card = ({
 
         <p>{body}</p>
         <p>
-          By : <span>{userName}</span>
+          By :{' '}
+          <span>
+            {userName} (id: {userId})
+          </span>
         </p>
       </div>
       <div className="card-actions">{cardAction}</div>

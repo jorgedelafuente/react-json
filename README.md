@@ -1,14 +1,20 @@
 # react-json
 
-### Instructions
+    The app uses redux toolkit to fetch data from the json API and renders the list with functionality such as delete and edit. Some extra functionality was added such as displaying usernames from the user list and adding toasts to the delete interaction.
 
-1.) run npm install
-2.) run npm start
+## Instructions
 
-Tech Stack
+1. run npm install
+2. run npm start
+
+### Tech Stack
 
     React
-    React Toolkit
+    Redux Toolkit
+    Typescript
     SASS
     Axios
     React Toastify
+    Prettier
+    Jest
+    React Testing Library
