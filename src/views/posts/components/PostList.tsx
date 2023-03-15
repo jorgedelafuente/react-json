@@ -6,6 +6,7 @@ import { useAppDispatch } from '../../../redux';
 import Card from '../../../components/card/Card';
 import Spinner from '../../../components/spinner/Spinner/Spinner';
 import './PostList.scss';
+import PostCardContent from './PostCardContent';
 
 interface IPostList {
   allPosts: PostModel[];
@@ -39,18 +40,15 @@ const PostList = ({
         allPosts.map((post) => (
           <div key={post.id}>
             <Card
-              id={post.id}
-              title={post.title}
-              userId={post.userId}
-              userName={allUsers[post.userId - 1]?.username}
-              body={post.body}
-              cardAction={
-                <button
-                  aria-label="Delete Post"
-                  onClick={() => handleDelete(post.id)}
-                >
-                  Delete Post
-                </button>
+              cardContent={
+                <PostCardContent
+                  title={post.title}
+                  id={post.id}
+                  userId={post.userId}
+                  userName={allUsers[post.userId - 1]?.username}
+                  body={post.body}
+                  handleDelete={handleDelete}
+                />
               }
             />
           </div>
