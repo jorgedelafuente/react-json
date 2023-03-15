@@ -4,6 +4,7 @@ import { deletePost } from '../../../redux/postSlice';
 import { useAppDispatch } from '../../../redux';
 
 import Card from '../../../components/card/Card';
+import Spinner from '../../../components/spinner/Spinner/Spinner';
 import './PostList.scss';
 
 interface IPostList {
@@ -27,7 +28,7 @@ const PostList = ({
 
   return (
     <div className="postlist-wrapper">
-      {postsLoadingState === 'pending' && <p>...Loading</p>}
+      {postsLoadingState === 'pending' && <Spinner />}
 
       {postsLoadingState === 'failed' && (
         <p>There was an error retrieving the data. Try again later.</p>
@@ -41,7 +42,7 @@ const PostList = ({
               id={post.id}
               title={post.title}
               userId={post.userId}
-              userName={allUsers[post.userId - 1]?.name}
+              userName={allUsers[post.userId - 1]?.username}
               body={post.body}
               cardAction={
                 <button

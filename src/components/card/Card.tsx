@@ -19,7 +19,7 @@ const Card = ({
   return (
     <div className="card">
       <div>
-        <div className="card-title" data-testid="contentinfo2">
+        <div className="card-title">
           {!isEditable ? (
             <h3>{customTitle}</h3>
           ) : (
@@ -40,10 +40,13 @@ const Card = ({
             width="15px"
           />
         </div>
+
         <p>{body}</p>
-        <p>By : {userName}</p>
+        <p>
+          By : <span>{userName}</span>
+        </p>
       </div>
-      <div>{cardAction}</div>
+      <div className="card-actions">{cardAction}</div>
     </div>
   );
 };
