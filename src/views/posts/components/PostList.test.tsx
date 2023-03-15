@@ -5,7 +5,7 @@ import { createStore } from '../../../redux/store';
 import PostList from './PostList';
 
 test('renders username from PostList correctly', async () => {
-  const mockModule = jest.requireActual('../__mocks__/index.ts');
+  const mockModule = jest.requireActual('../../../../__mocks__/index');
   render(
     <Provider store={createStore()}>
       <PostList
