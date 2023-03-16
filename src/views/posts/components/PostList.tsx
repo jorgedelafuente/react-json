@@ -1,7 +1,5 @@
 import type { PostModel } from '../../../models/postModels';
 import type { UserModel } from '../../../models/userModels';
-import { deletePost } from '../../../redux/postSlice';
-import { useAppDispatch } from '../../../redux';
 
 import Card from '../../../components/card/Card';
 import Spinner from '../../../components/spinner/Spinner/Spinner';
@@ -21,12 +19,6 @@ const PostList = ({
   postsLoadingState,
   usersLoadingState,
 }: IPostList) => {
-  const dispatch = useAppDispatch();
-
-  const handleDelete = (postId: number) => {
-    dispatch(deletePost(postId));
-  };
-
   return (
     <div className="postlist-wrapper">
       {postsLoadingState === 'pending' && <Spinner />}
@@ -47,7 +39,7 @@ const PostList = ({
                   userId={post.userId}
                   userName={allUsers[post.userId - 1]?.username}
                   body={post.body}
-                  handleDelete={handleDelete}
+                  // handleDelete={handleDelete}
                 />
               }
             />
