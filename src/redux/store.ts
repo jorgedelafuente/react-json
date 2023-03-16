@@ -8,6 +8,7 @@ export const createStore = () =>
       posts: postReducer.reducer,
       users: userReducer.reducer,
     },
+    devTools: process.env.NODE_ENV !== 'production',
   });
 export const store = createStore();
 
