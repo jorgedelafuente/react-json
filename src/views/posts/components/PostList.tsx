@@ -1,8 +1,9 @@
-import type { PostModel } from '../../../models/postModels';
-import type { UserModel } from '../../../models/userModels';
-
-import Card from '../../../components/card/Card';
+import { Card } from '../../../components/layout';
 import PostCardContent from './PostCardContent';
+
+import type { UserModel } from '../../../models/userModels';
+import type { PostModel } from '../../../models/postModels';
+
 import './PostList.scss';
 
 interface IPostList {
@@ -13,22 +14,21 @@ interface IPostList {
 const PostList = ({ allPosts, allUsers }: IPostList) => {
   return (
     <div className="postlist-wrapper">
-      {allUsers &&
-        allPosts.map((post) => (
-          <div key={post.id}>
-            <Card
-              cardContent={
-                <PostCardContent
-                  title={post.title}
-                  id={post.id}
-                  userId={post.userId}
-                  userName={allUsers[post.userId - 1]?.username}
-                  body={post.body}
-                />
-              }
-            />
-          </div>
-        ))}
+      {allPosts.map((post) => (
+        <div key={post.id}>
+          <Card
+            cardContent={
+              <PostCardContent
+                title={post.title}
+                id={post.id}
+                userId={post.userId}
+                userName={allUsers[post.userId - 1]?.username}
+                body={post.body}
+              />
+            }
+          />
+        </div>
+      ))}
     </div>
   );
 };

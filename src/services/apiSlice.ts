@@ -12,7 +12,6 @@ export const apiSlice = createApi({
     getPosts: builder.query<PostModel[], void>({
       query: () => '/posts',
     }),
-
     getUsers: builder.query<UserModel[], void>({
       query: () => '/users',
     }),
