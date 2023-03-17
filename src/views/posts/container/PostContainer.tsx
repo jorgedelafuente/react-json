@@ -1,47 +1,33 @@
-import { useEffect } from 'react';
-import {
-  useAppDispatch,
-  useAppSelector,
-  fetchPosts,
-  fetchUsers,
-  type RootState,
-} from '../../../redux';
-
+import { useAppSelector, type RootState } from '../../../store';
+import { useGetPostsQuery, useGetUsersQuery } from '../../../services/apiSlice';
 import { Header, Footer } from '../../../components/layout';
 import PostList from '../components/PostList';
+import Spinner from '../../../components/spinner/Spinner/Spinner';
 
 function PostContainer() {
-  const dispatch = useAppDispatch();
+  const { isLoading: postsIsLoading, isError: postsIsError } =
+    useGetPostsQuery();
+
+  const {
+    data: allUsers,
+    isLoading: usersIsLoading,
+    isError: usersIsError,
+  } = useGetUsersQuery();
+
   const allPosts = useAppSelector((state: RootState) => state.posts.all_posts);
-  const allUsers = useAppSelector((state: RootState) => state.users.all_users);
-  const postsLoadingState = useAppSelector(
-    (state: RootState) => state.posts.loading
-  );
-  const usersLoadingState = useAppSelector(
-    (state: RootState) => state.users.loading
-  );
 
-  useEffect(() => {
-    if (allPosts.length === 0) {
-      dispatch(fetchPosts());
-    }
-  }, [dispatch, allPosts]);
-
-  useEffect(() => {
-    if (allUsers.length === 0) {
-      dispatch(fetchUsers());
-    }
-  }, [dispatch, allUsers]);
+  const isLoading = postsIsLoading && usersIsLoading;
+  const isError = usersIsError && postsIsError;
+  const isFetched = allPosts && allUsers;
 
   return (
     <>
       <Header />
-      <PostList
-        allPosts={allPosts}
-        allUsers={allUsers}
-        postsLoadingState={postsLoadingState}
-        usersLoadingState={usersLoadingState}
-      />
+      {isLoading && <Spinner />}
+      {isError && (
+        <p>There was an error retrieving the data. Try again later.</p>
+      )}
+      {isFetched && <PostList allPosts={allPosts} allUsers={allUsers} />}
       <Footer allPostsAmount={allPosts.length} />
     </>
   );
