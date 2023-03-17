@@ -1,50 +1,34 @@
-import type { PostModel } from '../../../models/postModels';
-import type { UserModel } from '../../../models/userModels';
-
-import Card from '../../../components/card/Card';
-import Spinner from '../../../components/spinner/Spinner/Spinner';
-import './PostList.scss';
+import { Card } from '../../../components/layout';
 import PostCardContent from './PostCardContent';
+
+import type { UserModel } from '../../../models/userModels';
+import type { PostModel } from '../../../models/postModels';
+
+import './PostList.scss';
 
 interface IPostList {
   allPosts: PostModel[];
   allUsers: UserModel[];
-  postsLoadingState: string;
-  usersLoadingState: string;
 }
 
-const PostList = ({
-  allPosts,
-  allUsers,
-  postsLoadingState,
-  usersLoadingState,
-}: IPostList) => {
+const PostList = ({ allPosts, allUsers }: IPostList) => {
   return (
     <div className="postlist-wrapper">
-      {postsLoadingState === 'pending' && <Spinner />}
-
-      {postsLoadingState === 'failed' && (
-        <p>There was an error retrieving the data. Try again later.</p>
-      )}
-
-      {postsLoadingState === 'succeeded' &&
-        usersLoadingState === 'succeeded' &&
-        allPosts.map((post) => (
-          <div key={post.id}>
-            <Card
-              cardContent={
-                <PostCardContent
-                  title={post.title}
-                  id={post.id}
-                  userId={post.userId}
-                  userName={allUsers[post.userId - 1]?.username}
-                  body={post.body}
-                  // handleDelete={handleDelete}
-                />
-              }
-            />
-          </div>
-        ))}
+      {allPosts.map((post) => (
+        <div key={post.id}>
+          <Card
+            cardContent={
+              <PostCardContent
+                title={post.title}
+                id={post.id}
+                userId={post.userId}
+                userName={allUsers[post.userId - 1]?.username}
+                body={post.body}
+              />
+            }
+          />
+        </div>
+      ))}
     </div>
   );
 };

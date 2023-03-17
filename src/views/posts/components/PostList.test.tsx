@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 
-import { createStore } from '../../../redux/store';
+import { createStore } from '../../../store/store';
 import PostList from './PostList';
 
 test('renders username from PostList correctly', async () => {
@@ -11,8 +11,6 @@ test('renders username from PostList correctly', async () => {
       <PostList
         allPosts={mockModule.mockPosts}
         allUsers={mockModule.mockUsers}
-        postsLoadingState="succeeded"
-        usersLoadingState="succeeded"
       />
     </Provider>
   );

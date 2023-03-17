@@ -1,13 +1,11 @@
 import { useAppDispatch, useAppSelector } from './hooks';
-import { fetchPosts } from './postSlice';
-import { fetchUsers } from './userSlice';
+import { apiSlice } from '../services/apiSlice';
 import { RootState, AppDispatch } from './store';
 
 export {
   useAppDispatch,
   useAppSelector,
-  fetchPosts,
-  fetchUsers,
+  apiSlice,
   type RootState,
   type AppDispatch,
 };

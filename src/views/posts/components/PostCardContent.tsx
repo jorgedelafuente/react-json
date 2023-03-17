@@ -1,7 +1,8 @@
 import { useState, useCallback } from 'react';
 import type { PostModel } from '../../../models/postModels';
-import { useAppDispatch } from '../../../redux';
-import { deletePost } from '../../../redux/postSlice';
+import { useAppDispatch } from '../../../store';
+import { deletePost } from '../slices/postSlice';
+
 import './PostCardContent.scss';
 
 interface CardContentProps extends PostModel {
