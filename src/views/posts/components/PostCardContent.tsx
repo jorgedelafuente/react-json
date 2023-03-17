@@ -1,5 +1,8 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import type { PostModel } from '../../../models/postModels';
+import { useAppDispatch } from '../../../store';
+import { deletePost } from '../slices/postSlice';
+
 import './PostCardContent.scss';
 
 interface CardContentProps extends PostModel {
@@ -8,7 +11,6 @@ interface CardContentProps extends PostModel {
   title: string;
   body: string;
   userId: number;
-  handleDelete: (postId: number) => void;
 }
 
 const PostCardContent = ({
@@ -16,11 +18,19 @@ const PostCardContent = ({
   body,
   userName,
   userId,
-  handleDelete,
   id,
 }: CardContentProps): JSX.Element => {
+  const dispatch = useAppDispatch();
   const [customTitle, setCustomTitle] = useState(title);
   const [isEditable, setIsEditable] = useState(false);
+
+  const handleDelete = useCallback(
+    (postId: number) => {
+      dispatch(deletePost(postId));
+    },
+    [dispatch]
+  );
+
   return (
     <>
       <div className="card-content">
