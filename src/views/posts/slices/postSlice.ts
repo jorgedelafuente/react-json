@@ -18,9 +18,6 @@ export const postSlice = createSlice({
       );
       toast.success(`Post with Id ${action.payload} was deleted successfully.`);
     },
-    setPosts(state, action: PayloadAction<PostModel[]>) {
-      state.all_posts = action.payload;
-    },
   },
   extraReducers: (builder) => {
     builder.addMatcher(
@@ -32,6 +29,6 @@ export const postSlice = createSlice({
   },
 });
 
-export const { deletePost, setPosts } = postSlice.actions;
+export const { deletePost } = postSlice.actions;
 
 export default postSlice;
