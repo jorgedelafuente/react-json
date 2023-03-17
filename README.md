@@ -1,6 +1,6 @@
 # react-json
 
->The app uses redux toolkit to fetch data from the json API and renders the list >with functionality such as delete and edit. Some extra functionality was added >such as displaying usernames from the user list and adding toasts to the delete >interaction.
+>The app uses redux toolkit to fetch data from the json API and renders the list with functionality such as delete and edit. Some extra functionality was added such as displaying usernames from the user list and adding toasts to the delete interaction.
 
 ## Instructions
 

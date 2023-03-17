@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
-import type { PostArrayModel, PostModel } from '../../../models/postModels';
+import type { PostArrayModel } from '../../../models/postModels';
 import { apiSlice } from '../../../services/apiSlice';
 
 const initialPostState: PostArrayModel = {
